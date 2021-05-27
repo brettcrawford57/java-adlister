@@ -10,6 +10,8 @@ import java.util.Locale;
 public class HelloWorldServlet extends HttpServlet {
     String name;
 
+    private int counter = 0;
+
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
 
         name = req.getParameter("name");
@@ -19,6 +21,10 @@ public class HelloWorldServlet extends HttpServlet {
         } else {
             res.getWriter().println("<h1>Hello, World!</h1>");
         }
+
+        counter++;
+
+        res.getWriter().println("Times you've visited this page: " + counter);
 
     }
 }
